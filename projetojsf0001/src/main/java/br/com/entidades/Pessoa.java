@@ -29,6 +29,9 @@ public class Pessoa implements Serializable {
 	
 	private String sexo;
 	
+	private String[] frameWorks;
+	
+	
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
 
@@ -79,7 +82,16 @@ public class Pessoa implements Serializable {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
-
+	
+	public String[] getFrameWorks() {
+		return frameWorks;
+	}
+	
+	public void setFrameWorks(String[] frameWorks) {
+		this.frameWorks = frameWorks;
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

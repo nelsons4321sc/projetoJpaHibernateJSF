@@ -35,11 +35,21 @@
 			<h:inputText value="#{pessoaBean.pessoa.idade}" />
 			
 			<h:outputLabel value="Seco: " />
-			<h:selectOneMenu id="campoSexo" value="#{pessoaBean.pessoa.sexo}" required="true">
+			<h:selectOneMenu id="campoSexo" value="#{pessoaBean.pessoa.sexo}" >
 				<f:selectItem itemValue="NÃO" itemLabel="[-Selecione-]" noSelectionOption="true"/>
 				<f:selectItem itemValue="MASCULINO" itemLabel="Masculino"/>
 				<f:selectItem itemValue="FEMININO" itemLabel="Feminino"/>
 			</h:selectOneMenu>
+			
+			<h:outputLabel value="FrameWorks: " />
+			<h:selectManyMenu id="campoFrameWorks" style="height:90px" 
+			value="#{pessoaBean.pessoa.frameWorks}" >
+				<f:selectItem itemValue="Hibernate" />
+				<f:selectItem itemValue="Spring MVC" />
+				<f:selectItem itemValue="JPA" />
+				<f:selectItem itemValue="PrimeFaces" />
+				<f:selectItem itemValue="JSF" />
+			</h:selectManyMenu>
 
 			<h:outputLabel />
 
