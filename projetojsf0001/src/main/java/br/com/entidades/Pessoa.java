@@ -31,6 +31,8 @@ public class Pessoa implements Serializable {
 	
 	private String[] frameWorks;
 	
+	private Boolean ativo;
+	
 	
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
@@ -91,7 +93,15 @@ public class Pessoa implements Serializable {
 		this.frameWorks = frameWorks;
 	}
 	
-	
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
