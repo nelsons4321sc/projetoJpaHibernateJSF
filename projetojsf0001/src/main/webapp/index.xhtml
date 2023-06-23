@@ -9,13 +9,21 @@
 </h:head>
 
 <h:body>
-	<h:form id="formLogi">
+	<h:form id="formLogi" style="margin-top:22%; margin-left:40%;">
 	
 	<h1>LOGIN EM  JSF</h1>
-		<h1>Faça o Login</h1>
+		
+	<h:panelGrid columns="2">
 	
-	<h:commandButton value="Navegar" action="primeiraPagina"/>
+	<h:outputLabel value="Login"/>
+	<h:inputText value="#{pessoaBean.pessoa.login}"/>
 	
+	<h:outputLabel value="Senha"/>
+	<h:inputSecret value="#{pessoaBean.pessoa.senha}"/>
+	
+	<h:commandButton value="Acessar"  action="#{pessoaBean.logar}"/>
+	</h:panelGrid>
+		
 	</h:form>
 
 </h:body>
