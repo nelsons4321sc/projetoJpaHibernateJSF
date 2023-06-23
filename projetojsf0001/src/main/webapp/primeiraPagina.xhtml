@@ -10,7 +10,15 @@
 </h:head>
 
 <h:body>
-	<h:form id="formPessoa">
+
+	<h:form>
+		<h:commandLink value="Administração" action="lancamento" style="margin-left:1cm;"/>
+		<h:commandLink value="Lançamentos" action="primeiraPagina" style="margin-left:1cm;"/>
+		<h:commandLink value="Administração" action="index" style="margin-left:1cm;"/>
+	
+	</h:form>	
+
+	<h:form id="formPessoa" rendered="#{pessoaBean.permiteAcesso('ADMINISTRADOR')}">
 
 		<h1>JSF</h1>
 		
