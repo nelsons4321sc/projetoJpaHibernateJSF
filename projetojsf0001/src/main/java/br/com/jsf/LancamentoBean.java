@@ -12,6 +12,8 @@ import javax.faces.context.FacesContext;
 import br.com.dao.DaoGeneric;
 import br.com.entidades.Lancamento;
 import br.com.entidades.Pessoa;
+import br.com.repository.IDaoLancamento;
+import br.com.repository.IdadLancamentoImpl;
 
 
 @ViewScoped
@@ -21,7 +23,7 @@ public class LancamentoBean {
 	private Lancamento lancamento = new Lancamento();
 	private DaoGeneric<Lancamento> daoGeneric = new DaoGeneric<Lancamento>();
 	private List<Lancamento> lancamentos = new ArrayList<Lancamento>();
-	
+	private IDaoLancamento daoLancamento = new IdadLancamentoImpl();
 	
 	public String salvar() {
 				
@@ -32,10 +34,13 @@ public class LancamentoBean {
 		lancamento.setUsuario(pessoaUser);
 		daoGeneric.salvar(lancamento);
 		
+		carregarLancamentos();
+		
 		return "";
 	}
 	
 	public String novo() {
+		lancamento = new Lancamento();
 		return "";
 	}
 	
@@ -48,7 +53,11 @@ public class LancamentoBean {
 	
 	@PostConstruct
 	public void carregarLancamentos() {
-		lancamentos = daoGeneric.getListEntity(Lancamento.class);
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		ExternalContext externalContext = context.getExternalContext();
+		Pessoa pessoaUser = (Pessoa) externalContext.getSessionMap().get("usuarioLogado");
+		lancamentos = daoLancamento.consultar(pessoaUser.getId());
 		
 	}
 

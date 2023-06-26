@@ -15,7 +15,7 @@
 	<h:form>
 		<h:panelGrid columns="2">
 			<f:facet name="header">
-					<h:outputText value="Lançamentos" style="margin-left:-45%;"/>
+					<h:outputText value="Lançamentos" style="margin-left:-45%; font-size: 40px; color: red;"/>
 			</f:facet>
 			
 			<h:outputLabel value="ID"/>
@@ -37,9 +37,38 @@
 				<h:commandButton value="remove" action="#{lancamentoBean.remove}" image="/resources/img/delete.jpg"  title="Excluir"/>
 				<h:commandButton value="limpar" type="reset" image="/resources/img/limpar.jpg" title="Limpar"/>
 			</h:panelGroup>
-			
-			
 		</h:panelGrid>
+		
+		<h:dataTable value="#{lancamentoBean.lancamentos}" var="lanc" border="3">
+			<f:facet name="header"> Lista de Lançamentos</f:facet>
+			
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputLabel value="#{lanc.id}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Nota</f:facet>
+				<h:outputLabel value="#{lanc.numeroNotaFiscal}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Origem</f:facet>
+				<h:outputLabel value="#{lanc.empresaOrigem}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Destino</f:facet>
+				<h:outputLabel value="#{lanc.empresaDestino}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Usuário</f:facet>
+				<h:outputLabel value="#{lanc.usuario.nome}"/>
+			</h:column>
+			
+		</h:dataTable>
+		
 	</h:form>
 	
 

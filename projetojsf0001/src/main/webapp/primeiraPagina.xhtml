@@ -24,7 +24,7 @@
 		
 		<h:graphicImage height="100" width="100" library="img" name="logobiblia.jpg"/>
 
-		<h:panelGrid columns="2" rendered="true">
+		<h:panelGrid columns="1" rendered="true" margin-left="50" >
 
 			<f:facet name="header">
 				<h:outputText value="CADASTRO DE USUÁRIOS" />
@@ -59,13 +59,7 @@
 				<f:selectItem itemValue="JSF" />
 			</h:selectManyMenu>
 			
-			<h:form>
-		<h:commandLink value="Administração" action="primeiraPagina" style="margin-left:1cm;"/>
-		<h:commandLink value="Lançamentos" action="lancamento?faces-redirect=true" style="margin-left:1cm;"/>
-		<h:commandLink value="Trocar Usuario" action="index" style="margin-left:1cm;"/>
-	
-	</h:form>
-			
+		
 			<h:outputLabel value="Ativo: " />
 			<h:selectBooleanCheckbox value="#{pessoaBean.pessoa.ativo}" />
 			
