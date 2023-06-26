@@ -8,7 +8,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.faces.view.facelets.FaceletContext;
 
 import br.com.dao.DaoGeneric;
 import br.com.entidades.Pessoa;
@@ -21,7 +20,7 @@ public class PessoaBean  {
 
 	private Pessoa pessoa = new Pessoa();
 	private DaoGeneric<Pessoa> daoGeneric = new DaoGeneric<Pessoa>();
-	private List<Pessoa> pessoas = new ArrayList<>();
+	private List<Pessoa> pessoas = new ArrayList<Pessoa>();
 	
 	private IDaoPessoa iDaoPessoa = new IDAoPessoaImpl();
 	
