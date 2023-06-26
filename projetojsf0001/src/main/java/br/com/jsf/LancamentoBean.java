@@ -51,6 +51,10 @@ public class LancamentoBean {
 		return "";
 	}
 	
+	public String voltar() {
+		return "primeiraPagina";
+	}
+	
 	@PostConstruct
 	public void carregarLancamentos() {
 		
