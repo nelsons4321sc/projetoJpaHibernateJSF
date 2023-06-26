@@ -91,26 +91,29 @@
 		<br />
 		<br />
 		<h:dataTable value="#{pessoaBean.pessoas}" var="pessoa" border="3" cellpadding="4">
-			<f:facet name="header">
-			Lista de pessoas cadastradas
 			
-			</f:facet>
+			<f:facet name="header">	Lista de pessoas cadastradas</f:facet>
+			
 			<h:column>
 				<f:facet name="header">ID</f:facet>
 				<h:outputText value="#{pessoa.id}" />
 			</h:column>
+			
 			<h:column>
 				<f:facet name="header">Nome</f:facet>
 				<h:outputText value="#{pessoa.nome}" />
 			</h:column>
+			
 			<h:column>
 				<f:facet name="header">SobreNome</f:facet>
 				<h:outputText value="#{pessoa.sobrenome}" />
 			</h:column>
+			
 			<h:column>
 				<f:facet name="header">Idade</f:facet>
 				<h:outputText value="#{pessoa.idade}" />
 			</h:column>
+			
 			<h:column>
 				<f:facet name="header">Editar</f:facet>
 				<h:commandLink title="Editar">
@@ -119,6 +122,7 @@
 					<h:graphicImage value="/resources/img/editar.jpg"/>	
 				</h:commandLink>
 			</h:column>
+			
 			<h:column rendered="#{pessoaBean.permiteAcesso('ADMINISTRADOR')}">
 				<f:facet name="header">Excluir</f:facet>	
 				<h:commandLink  action="#{pessoaBean.remove}" title="Excluir">
@@ -129,12 +133,6 @@
 			</h:column>
 			
 		</h:dataTable>
-
-
-
-
-
-
 
 	</h:form>
 

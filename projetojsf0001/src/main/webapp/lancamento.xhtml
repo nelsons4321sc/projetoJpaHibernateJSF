@@ -12,7 +12,6 @@
 <h:body>
 	<h:form id="formLancamento" style="margin-top:10%; margin-left:40%;">
 	
-	<h:form>
 		<h:panelGrid columns="2">
 			<f:facet name="header">
 					<h:outputText value="Lançamentos" style="margin-left:-45%; font-size: 40px; color: red;"/>
@@ -40,6 +39,7 @@
 		</h:panelGrid>
 		
 		<h:dataTable value="#{lancamentoBean.lancamentos}" var="lanc" border="3">
+			
 			<f:facet name="header"> Lista de Lançamentos</f:facet>
 			
 			<h:column>
@@ -67,14 +67,29 @@
 				<h:outputLabel value="#{lanc.usuario.nome}"/>
 			</h:column>
 			
+			<h:column>
+				<f:facet name="header">Editar</f:facet>
+				<h:commandLink title="Editar">
+					<h:graphicImage value="/resources/img/editar.jpg"/>
+					<f:setPropertyActionListener target="#{lancamentoBean.lancamento}"
+					 value="#{lanc}" />
+				</h:commandLink>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Excluir</f:facet>
+				<h:commandLink  action="#{lancamentoBean.remove}" title="excluir">
+					<h:graphicImage value="/resources/img/excluir.jpg"/>
+					<f:setPropertyActionListener target="#{lancamentoBean.lancamento}"
+					 value="#{lanc}" />
+				</h:commandLink>
+			</h:column>
+			
+			
 		</h:dataTable>
 		
 	</h:form>
 	
-
-		
-	</h:form>
-
 </h:body>
 
 </html>
