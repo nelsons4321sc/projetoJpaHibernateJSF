@@ -42,10 +42,16 @@
 			
 			<h:outputLabel value="Sexo: " />
 			<h:selectOneMenu id="campoSexo" value="#{pessoaBean.pessoa.sexo}" >
-				<f:selectItem itemValue="NÃO" itemLabel="[-Selecione-]" noSelectionOption="true"/>
+				<f:selectItem itemValue="NÃO ESCOLHIDO" itemLabel="[-Selecione-]" noSelectionOption="true"/>
 				<f:selectItem itemValue="MASCULINO" itemLabel="Masculino"/>
 				<f:selectItem itemValue="FEMININO" itemLabel="Feminino"/>
 			</h:selectOneMenu>
+			
+			<h:outputLabel>
+			<h:inputText value="#{pessoaBean.pessoa.dataNascimento}">
+			<f:convertDateTime pattern="dd/MM/yyyy"/>	
+			</h:inputText>
+			</h:outputLabel>
 			
 			<h:outputLabel value="FrameWorks: " />
 			<h:selectManyMenu id="campoFrameWorks" style="height:90px" 
