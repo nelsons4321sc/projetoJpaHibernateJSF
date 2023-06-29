@@ -33,7 +33,7 @@
 			<h:panelGroup style="margin-left:-30%;" >
 				<h:commandButton value="Novo" action="#{lancamentoBean.novo}" image="/resources/img/novo.jpg" title="Novo" />
 				<h:commandButton value="Salvar" action="#{lancamentoBean.salvar}" image="/resources/img/salvar.jpg" title="salvar" />
-				<h:commandButton value="remove" action="#{lancamentoBean.remove}" image="/resources/img/delete.jpg"  title="Excluir"/>
+				<h:commandButton value="remove" action="#{lancamentoBean.remove}" image="/resources/img/delete.jpg"  title="Excluir" rendered="#{pessoaBean.permiteAcesso('ADMINISTRADOR')}"/>
 				<h:commandButton value="limpar" type="reset" image="/resources/img/limpar.jpg" title="Limpar"/>
 				<h:commandButton value="voltar" action="#{lancamentoBean.voltar}" image="/resources/img/voltar.jpg" title="Voltar"/>
 			</h:panelGroup>
@@ -77,7 +77,7 @@
 				</h:commandLink>
 			</h:column>
 			
-			<h:column>
+			<h:column rendered="#{pessoaBean.permiteAcesso('ADMINISTRADOR')}">
 				<f:facet name="header">Excluir</f:facet>
 				<h:commandLink  action="#{lancamentoBean.remove}" title="excluir">
 					<h:graphicImage value="/resources/img/excluir2.jpg"/>
