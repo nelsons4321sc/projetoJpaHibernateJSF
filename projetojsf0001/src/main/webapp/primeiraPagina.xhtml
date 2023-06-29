@@ -32,11 +32,14 @@
 			<h:inputText value="#{pessoaBean.pessoa.id}" readonly="true" />
 
 			<h:outputLabel value="Nome" />
-			<h:inputText value="#{pessoaBean.pessoa.nome}" 
-			required="true"	requiredMessage="Informe o nome do usuário" 
+			<h:inputText value="#{pessoaBean.pessoa.nome}" required="true" requiredMessage="Informe o nome do Usuário"
 			validatorMessage="Nome tem que ter no mínimo 4 letras">
-				<f:validateLength minimum="4" maximum="10"/>
+			<f:validateLength minimum="4" maximum="10"/>
 			</h:inputText>
+				
+			
+			
+			
 
 			<h:outputLabel value="SobreNome" />
 			<h:inputText value="#{pessoaBean.pessoa.sobrenome}" />
@@ -109,14 +112,21 @@
 			<h:outputLabel />
 
 			<h:panelGroup>
-				<h:commandButton value="Novo" action="#{pessoaBean.novo}" image="/resources/img/novo.jpg" title="Novo" />
+				<h:commandButton value="Novo" action="#{pessoaBean.novo}" image="/resources/img/novo.jpg" title="Novo" >
+					<f:ajax execute="botaoNovo" render="@form"/>
+				</h:commandButton>
+				
 				<h:commandButton value="Salvar" action="#{pessoaBean.salvar}" image="/resources/img/salvar.jpg" title="salvar" />
 				<h:commandButton value="remove" action="#{pessoaBean.remove}" image="/resources/img/delete.jpg"  title="Excluir" rendered="#{pessoaBean.permiteAcesso('ADMINISTRADOR')}"/>
-				<h:commandButton value="limpar" type="reset" image="/resources/img/limpar.jpg" title="Limpar"/>
+				<h:commandButton value="limpar" action="#{pessoaBean.limpar}" image="/resources/img/limpar.jpg" title="Limpar">
+					<f:ajax execute="botaoLimpar" render="@form"/>
+				</h:commandButton>
 			</h:panelGroup>
 		</h:panelGrid>
+		</h:form>
 		<br />
 		<br />
+		<h:form id="formTable">
 		<h:dataTable value="#{pessoaBean.pessoas}" var="pessoa" border="3" cellpadding="4">
 			
 			<f:facet name="header">	Lista de pessoas cadastradas</f:facet>
@@ -160,8 +170,8 @@
 			</h:column>
 			
 		</h:dataTable>
-
-	</h:form>
+	</h:form>	
+	
 
 </h:body>
 

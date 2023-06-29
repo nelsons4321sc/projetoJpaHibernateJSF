@@ -41,6 +41,13 @@ public class PessoaBean  {
 	}
 
 	public String novo() {
+		//antes do novo
+		pessoa = new Pessoa();
+		return "";
+	}
+	
+	public String limpar() {
+		//antes de limpar
 		pessoa = new Pessoa();
 		return "";
 	}
