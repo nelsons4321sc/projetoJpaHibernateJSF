@@ -39,6 +39,11 @@ public class Pessoa implements Serializable {
 	
 	private String perfilUser;
 	
+	private String sexoRadio;
+	
+	private String nivelProgramador;
+	
+	
 	
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
@@ -130,6 +135,22 @@ public class Pessoa implements Serializable {
 	
 	public void setPerfilUser(String perfilUser) {
 		this.perfilUser = perfilUser;
+	}
+	
+	public String getSexoRadio() {
+		return sexoRadio;
+	}
+	
+	public void setSexoRadio(String sexoRadio) {
+		this.sexoRadio = sexoRadio;
+	}
+	
+	public String getNivelProgramador() {
+		return nivelProgramador;
+	}
+	
+	public void setNivelProgramador(String nivelProgramador) {
+		this.nivelProgramador = nivelProgramador;
 	}
 
 	@Override

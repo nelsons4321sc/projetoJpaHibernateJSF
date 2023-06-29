@@ -42,7 +42,7 @@
 			<h:outputLabel value="Idade" />
 			<h:inputText value="#{pessoaBean.pessoa.idade}" />
 			
-			<h:outputLabel value="Seco: " />
+			<h:outputLabel value="Sexo: " />
 			<h:selectOneMenu id="campoSexo" value="#{pessoaBean.pessoa.sexo}" >
 				<f:selectItem itemValue="NÃO" itemLabel="[-Selecione-]" noSelectionOption="true"/>
 				<f:selectItem itemValue="MASCULINO" itemLabel="Masculino"/>
@@ -58,6 +58,14 @@
 				<f:selectItem itemValue="PrimeFaces" />
 				<f:selectItem itemValue="JSF" />
 			</h:selectManyMenu>
+			
+			
+			<h:outputLabel value="Programador: " />
+			<h:selectOneRadio value="#{pessoaBean.pessoa.nivelProgramador}">
+				<f:selectItem itemValue="J" itemLabel="Júnior"/>
+				<f:selectItem itemValue="P" itemLabel="Pleno"/>
+				<f:selectItem itemValue="S" itemLabel="Senior"/>			
+			</h:selectOneRadio>
 			
 		
 			<h:outputLabel value="Ativo: " />
