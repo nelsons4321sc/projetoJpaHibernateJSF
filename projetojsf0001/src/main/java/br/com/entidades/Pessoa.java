@@ -45,6 +45,7 @@ public class Pessoa implements Serializable {
 	
 	private Integer[] linguagens;
 	
+	private String cep;
 	
 	
 	@Temporal(TemporalType.DATE)
@@ -162,6 +163,14 @@ public class Pessoa implements Serializable {
 	
 	public void setLinguagens(Integer[] linguagens) {
 		this.linguagens = linguagens;
+	}
+	
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+	
+	public String getCep() {
+		return cep;
 	}
 
 	@Override
