@@ -16,6 +16,8 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
+import com.google.gson.Gson;
+
 import br.com.dao.DaoGeneric;
 import br.com.entidades.Pessoa;
 import br.com.repository.IDAoPessoaImpl;
@@ -114,7 +116,16 @@ public class PessoaBean  {
 				jsonCep.append(cep);
 			}
 			
+			Pessoa gsonAux = new Gson().fromJson(jsonCep.toString(), Pessoa.class);
 			
+			pessoa.setCep(gsonAux.getCep());
+			pessoa.setLogradouro(gsonAux.getLogradouro());
+			pessoa.setComplemento(gsonAux.getComplemento());
+			pessoa.setBairro(gsonAux.getBairro());
+			pessoa.setLocalidade(gsonAux.getLocalidade());
+			pessoa.setUf(gsonAux.getUf());
+			
+			System.out.println(gsonAux);
 		} catch (Exception e) {
 			mostrarmsg("Erro ao consultar o CEP");
 		}
