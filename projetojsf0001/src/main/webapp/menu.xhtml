@@ -9,7 +9,7 @@
 	<h:form>
 		<h:commandLink value="Administração" action="primeiraPagina" style="margin-left:1cm;" rendered="#{pessoaBean.permiteAcesso('ADMINISTRADOR')}"/>
 		<h:commandLink value="Lançamentos" action="lancamento?faces-redirect=true" style="margin-left:1cm;"/>
-		<h:commandLink value="Trocar Usuario" action="index" style="margin-left:1cm;"/>
+		<h:commandLink value="Trocar Usuario" action="#{pessoaBean.deslogar}" style="margin-left:1cm;"/>
 	
 	</h:form>	
 
