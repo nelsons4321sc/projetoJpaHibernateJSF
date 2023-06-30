@@ -14,7 +14,7 @@
 
 	<ui:include src="/menu.xhtml"/>		
 
-	<h:form id="formPessoa" rendered="#{pessoaBean.permiteAcesso('ADMINISTRADOR')}">
+	<h:form id="formPessoa" >
 
 		<h1 style="color: red">FORMLÁRIO EM JSF</h1>
 		
@@ -120,20 +120,21 @@
 			<h:outputLabel value="Senha: " />
 			<h:inputSecret value="#{pessoaBean.pessoa.senha}"/>
 			
-			<h:outputLabel value="Perfil: " />
-			<h:selectOneMenu id="perfil" value="#{pessoaBean.pessoa.perfilUser}" required="false">
-				<f:selectItem itemLabel="[-Selecione-]" noSelectionOption="true"/>
-				<f:selectItem itemValue="ADMINISTRADOR" itemLabel="Administrador"/>
-				<f:selectItem itemValue="SECRETÁRIO" itemLabel="Secretário"/>
-				<f:selectItem itemValue="RECEPCIONISTA" itemLabel="Recepcionista"/>
-			</h:selectOneMenu>
 			
+				<h:outputLabel value="Perfil: " />
+					<h:selectOneMenu id="perfil" value="#{pessoaBean.pessoa.perfilUser}" >
+						<f:selectItem itemLabel="[-Selecione-]" noSelectionOption="true"/>
+						<f:selectItem itemValue="ADMINISTRADOR" itemLabel="Administrador"  />
+						<f:selectItem itemValue="SECRETÁRIO" itemLabel="Secretário"/>
+						<f:selectItem itemValue="RECEPCIONISTA" itemLabel="Recepcionista"/>
+				</h:selectOneMenu>
+		
 			
 			
 			<h:outputLabel />
 
 			<h:panelGroup>
-				<h:commandButton value="Novo" action="#{pessoaBean.novo}" image="/resources/img/novo.jpg" title="Novo" >
+				<h:commandButton value="Novo" action="#{pessoaBean.novo}" image="/resources/img/novo.jpg" title="Novo" rendered="#{pessoaBean.permiteAcesso('ADMINISTRADOR')}" >
 					<f:ajax execute="botaoNovo" render="@form"/>
 				</h:commandButton>
 				
@@ -147,7 +148,7 @@
 		</h:form>
 		<br />
 		<br />
-		<h:form id="formTable">
+		<h:form id="formTable" rendered="#{pessoaBean.permiteAcesso('ADMINISTRADOR')}">
 		<h:dataTable value="#{pessoaBean.pessoas}" var="pessoa" border="3" cellpadding="4">
 			
 			<f:facet name="header">	Lista de pessoas cadastradas</f:facet>
