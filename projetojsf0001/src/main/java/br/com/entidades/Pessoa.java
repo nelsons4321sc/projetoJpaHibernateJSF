@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 @Entity
 public class Pessoa implements Serializable {
@@ -33,8 +36,10 @@ public class Pessoa implements Serializable {
 	
 	private Boolean ativo;
 	
+
+	@javax.validation.constraints.NotEmpty(message = "informe login")
 	private String login;
-	
+
 	private String senha;
 	
 	private String perfilUser;

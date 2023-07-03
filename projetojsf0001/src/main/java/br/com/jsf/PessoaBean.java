@@ -79,14 +79,22 @@ public class PessoaBean  {
 			FacesContext context = FacesContext.getCurrentInstance();
 			ExternalContext externalContext = context.getExternalContext();
 			externalContext.getSessionMap().put("usuarioLogado", pessoaUser);
-			
+			addMessage("messages");
 			
 			return "primeiraPagina.jsf";
 		}
 		
+		
 		return "index.jsf";
 	}
 	
+	private String addMessage(String msg) {
+		msg = ""; 
+		
+		return msg;
+		
+	}
+
 	public String deslogar() {
 		
 			FacesContext context = FacesContext.getCurrentInstance();
