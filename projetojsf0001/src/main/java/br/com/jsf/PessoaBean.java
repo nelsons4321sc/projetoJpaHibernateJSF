@@ -15,6 +15,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpServletRequest;
 
 import com.google.gson.Gson;
@@ -29,10 +30,48 @@ import br.com.repository.IDaoPessoa;
 public class PessoaBean  {
 
 	private Pessoa pessoa = new Pessoa();
+		
 	private DaoGeneric<Pessoa> daoGeneric = new DaoGeneric<Pessoa>();
+	
 	private List<Pessoa> pessoas = new ArrayList<Pessoa>();
 	
 	private IDaoPessoa iDaoPessoa = new IDAoPessoaImpl();
+	
+	private List<SelectItem> estados;
+	
+	
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+	
+	public DaoGeneric<Pessoa> getDaoGeneric() {
+		return daoGeneric;
+	}
+	
+	public void setDaoGeneric(DaoGeneric<Pessoa> daoGeneric) {
+		this.daoGeneric = daoGeneric;
+	}
+	
+	public List<Pessoa> getPessoas() {
+		return pessoas;
+	}
+	
+	public void setPessoas(List<Pessoa> pessoas) {
+		this.pessoas = pessoas;
+	}
+	
+
+	public List<SelectItem> getEstados() {
+		estados = iDaoPessoa.listaEstados();
+		return estados;
+	}
+
+	
+	
 	
 
 	public String salvar() {
@@ -154,31 +193,12 @@ public class PessoaBean  {
 		}
 		
 	}
-
-	
-	public Pessoa getPessoa() {
-		return pessoa;
+	/*
+	public void carregarCidades(AjaxBehaviorEvent event) {
+		System.out.println(event.getComponent().getAttributes().get("submittedValue"));
+		
 	}
+*/
 	
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
-	}
 	
-	public DaoGeneric<Pessoa> getDaoGeneric() {
-		return daoGeneric;
-	}
-	
-	public void setDaoGeneric(DaoGeneric<Pessoa> daoGeneric) {
-		this.daoGeneric = daoGeneric;
-	}
-	
-	public List<Pessoa> getPessoas() {
-		return pessoas;
-	}
-	
-	public void setPessoas(List<Pessoa> pessoas) {
-		this.pessoas = pessoas;
-	}
-	
-
 }

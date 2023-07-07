@@ -23,12 +23,12 @@
 		
 		<h:graphicImage height="100" width="100" library="img" name="logobiblia.jpg"/>
 
-		<h:panelGrid columns="1" rendered="true" margin-left="50" >
+		<h:panelGrid columns="2" rendered="true"  >
 
 			<f:facet name="header">
 				<h:outputText value="CADASTRO DE USUÁRIOS" />
 			</f:facet>
-
+				
 			<h:outputLabel value="Id" />
 			<h:inputText value="#{pessoaBean.pessoa.id}" readonly="true" />
 
@@ -51,12 +51,12 @@
 				<f:selectItem itemValue="MASCULINO" itemLabel="Masculino"/>
 				<f:selectItem itemValue="FEMININO" itemLabel="Feminino"/>
 			</h:selectOneMenu>
-			
-			<h:outputLabel>
-			<h:inputText value="#{pessoaBean.pessoa.dataNascimento}" converterMessage="Data errada">
+		
+			<h:outputLabel value="Data"/>
+			<h:inputText value="#{pessoaBean.pessoa.dataNascimento}" converterMessage="Data errada" >
 			<f:convertDateTime pattern="dd/MM/yyyy" locale="pt_BR" timeZone="GMT-03:00"/>	
 			</h:inputText>
-			</h:outputLabel>
+			
 			
 			<h:outputLabel value="FrameWorks: " />
 			<h:selectManyMenu id="campoFrameWorks" style="height:90px" 
@@ -69,22 +69,23 @@
 			</h:selectManyMenu>
 			
 			
-			<h:outputLabel value="Programador: " />
+			<h:outputLabel value="Programador: " >
 			<h:selectOneRadio value="#{pessoaBean.pessoa.nivelProgramador}">
 				<f:selectItem itemValue="J" itemLabel="Júnior"/>
 				<f:selectItem itemValue="P" itemLabel="Pleno"/>
 				<f:selectItem itemValue="S" itemLabel="Senior"/>			
 			</h:selectOneRadio>
-			
-			<h:outputLabel value="Linguagens: " />
+			</h:outputLabel>
+			<h:outputLabel value="Linguagens: " >
 			<h:selectManyCheckbox value="#{pessoaBean.pessoa.linguagens}">
 				<f:selectItem itemValue="1" itemLabel="Java"/>
 				<f:selectItem itemValue="2" itemLabel="PHP"/>
 				<f:selectItem itemValue="3" itemLabel="Python"/>
 				<f:selectItem itemValue="4" itemLabel="Cobol"/>
 				<f:selectItem itemValue="5" itemLabel="C#"/>
-			
 			</h:selectManyCheckbox>
+			</h:outputLabel>
+			
 			
 			
 			<h:outputLabel value="CEP"/>
@@ -108,6 +109,9 @@
 			
 			<h:outputLabel value="UF " />
 			<h:inputText value="#{pessoaBean.pessoa.uf}" id="uf"/>
+		
+		
+			
 					
 			<h:outputLabel value="Ativo: " />
 			<h:selectBooleanCheckbox value="#{pessoaBean.pessoa.ativo}" />
@@ -131,7 +135,9 @@
 			
 			<h:outputLabel />
 
-			<h:panelGroup>
+			
+		</h:panelGrid>
+		<h:panelGroup>
 				<h:commandButton value="Novo" action="#{pessoaBean.novo}" image="/resources/img/novo.jpg" title="Novo" rendered="#{pessoaBean.permiteAcesso('ADMINISTRADOR')}" >
 					<f:ajax execute="botaoNovo" render="@form"/>
 				</h:commandButton>
@@ -142,7 +148,6 @@
 					<f:ajax execute="botaoLimpar" render="@form"/>
 				</h:commandButton>
 			</h:panelGroup>
-		</h:panelGrid>
 		</h:form>
 		<br />
 		<br />
