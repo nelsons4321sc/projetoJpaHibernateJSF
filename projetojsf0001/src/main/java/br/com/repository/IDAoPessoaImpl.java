@@ -42,12 +42,11 @@ public class IDAoPessoaImpl implements IDaoPessoa {
 		List<SelectItem> seletcItems = new ArrayList<SelectItem>();
 		
 		EntityManager entityManager = JPAUtil.getEntityManager();
-		
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
 		
 		List<Estados> estados = entityManager.createQuery("from Estados" ).getResultList();
-		
+					
 		for(Estados estado : estados) {
 			seletcItems.add(new SelectItem(estado.getId(), estado.getNome()));
 		}
