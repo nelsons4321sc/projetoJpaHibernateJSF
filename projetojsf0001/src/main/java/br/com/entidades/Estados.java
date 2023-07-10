@@ -1,4 +1,4 @@
-package br.com.entidades;
+	package br.com.entidades;
 
 import java.io.Serializable;
 import java.util.Objects;

@@ -39,6 +39,8 @@ public class PessoaBean  {
 	
 	private List<SelectItem> estados;
 	
+	private List<SelectItem> cidades;
+	
 	
 	public Pessoa getPessoa() {
 		return pessoa;
@@ -70,6 +72,13 @@ public class PessoaBean  {
 		return estados;
 	}
 
+	public List<SelectItem> getCidades() {
+		return cidades;
+	}
+	
+	public void setCidades(List<SelectItem> cidades) {
+		this.cidades = cidades;
+	}
 	
 	
 	
@@ -193,12 +202,15 @@ public class PessoaBean  {
 		}
 		
 	}
-	/*
+	
 	public void carregarCidades(AjaxBehaviorEvent event) {
-		System.out.println(event.getComponent().getAttributes().get("submittedValue"));
-		
+		String codigoEstado = (String) event.getComponent().getAttributes().get("submittedValue");
+	
+		if(codigoEstado != null) {
+			
+		}
 	}
-*/
+
 	
 	
 }
