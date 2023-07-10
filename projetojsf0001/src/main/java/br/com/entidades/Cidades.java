@@ -22,8 +22,8 @@ public class Cidades implements Serializable {
 	
 	private String nome;
 	
-	//@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
-	//private Estados estados;
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+	private Estados estados;
 
 	public Long getId() {
 		return id;
@@ -40,7 +40,7 @@ public class Cidades implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-/*
+
 	public Estados getEstados() {
 		return estados;
 	}
@@ -48,7 +48,7 @@ public class Cidades implements Serializable {
 	public void setEstados(Estados estados) {
 		this.estados = estados;
 	}
-*/
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
