@@ -25,7 +25,6 @@ public class Cidades implements Serializable {
 	
 	private String nome;
 	
-	//quando carregar uma cidade, carregar um estado em cascata
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
 	private Estados estados;
 
@@ -69,6 +68,7 @@ public class Cidades implements Serializable {
 		Cidades other = (Cidades) obj;
 		return Objects.equals(id, other.id);
 	}
+	
 	
 	
 
