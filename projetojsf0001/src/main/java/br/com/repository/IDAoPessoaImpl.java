@@ -37,6 +37,7 @@ public class IDAoPessoaImpl implements IDaoPessoa {
 		return pessoa;
 	}
 	
+	@Override
 	public List<SelectItem> listaEstados(){
 		
 		List<SelectItem> seletcItems = new ArrayList<SelectItem>();
