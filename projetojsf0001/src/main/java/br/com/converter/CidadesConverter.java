@@ -1,4 +1,4 @@
-package br.com.converter;
+ package br.com.converter;
 
 import java.io.Serializable;
 
@@ -9,37 +9,33 @@ import javax.faces.convert.FacesConverter;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
+import br.com.entidades.Cidades;
 import br.com.entidades.Estados;
 import br.com.jpautil.JPAUtil;
 
-@FacesConverter(forClass = Estados.class)
-public class EstadoConverter implements Converter, Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+@FacesConverter(forClass = Cidades.class)
+public class CidadesConverter implements Converter, Serializable {
 
 	//Retorna obljeto inteiro
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, 
-			String codigoEstado) {
+			String codigoCidade) {
 		EntityManager entityManager = JPAUtil.getEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();
 		
-		Estados estados = entityManager.
-				find(Estados.class, Long.parseLong(codigoEstado));
+		Cidades cidades = (Cidades) entityManager.
+				find(Cidades.class, Long.parseLong(codigoCidade));
 		
-		return estados;
+		return cidades;
 	}
 
 	//Retorna String
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, 
-			Object estado) {
+			Object cidade) {
 		
-		return ((Estados) estado).getId().toString();
+		return ((Cidades) cidade).getId().toString();
 	}
 
 }
